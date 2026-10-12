@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: painel-gateways
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python painel_gateways.py
+    healthCheckPath: /health
+    envVars:
+      - key: PAINEL_SENHA
+        sync: false
